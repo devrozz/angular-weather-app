@@ -1,0 +1,29 @@
+$lightskyblue: rgb(135, 206, 250);
+$white: rgb(255, 255, 255);
+$lightgray: rgba(211, 211, 211, 0.7);
+
+.days {
+    color: $white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    .day {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.date {
+    text-align: center;
+}
+
+.weather-details {
+    margin-left: 15px;
+
+    .weather-detail {
+        font-weight: 500;
+        align-self: center;
+        margin-bottom: 3px;
+    }
+}
