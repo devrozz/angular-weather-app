@@ -1,44 +1,15 @@
+<div class="city">
+    <h2>{{city}}</h2> 
+</div>
 <div class="days">
-    <div class="day">
-        <h3 class="date">Den 1</h3>
+    <div class="day" *ngFor="let day of days">
+        <h3 class="date">{{ day.date | date:'dd.MM' }}</h3>
         <div class="weather-details">
-            <div class="weather-detail">Teplota: 25C</div>
-            <div class="weather-detail">Pocitová teplota: 23C</div>
-            <div class="weather-detail">Vlhkost: 80</div>
-            <div class="weather-detail">Oblačnost: Oblačno</div>
+            <div class="weather-detail">Teplota: {{ day.temperature }} ° C</div>
+            <div class="weather-detail">Pocitová teplota: {{ day.feelsLike}} ° C</div>
+            <div class="weather-detail">Vlhkost: {{ day.humidity }} %</div>
+            <div class="weather-detail">Oblačnost: {{ day.cloudiness}} %</div>
+            <img src="{{environment.icon_url}}{{day.icon}}@2x.png" width="100" height="100">
         </div>
-    </div>
-    <div class="day">
-        <h3 class="date">Den 1</h3>
-        <div class="weather-details">
-            <div class="weather-detail">Teplota: 25C</div>
-            <div class="weather-detail">Pocitová teplota: 23C</div>
-            <div class="weather-detail">Vlhkost: 80</div>
-            <div class="weather-detail">Oblačnost: Oblačno</div>
-        </div>
-    </div><div class="day">
-        <h3 class="date">Den 1</h3>
-        <div class="weather-details">
-            <div class="weather-detail">Teplota: 25C</div>
-            <div class="weather-detail">Pocitová teplota: 23C</div>
-            <div class="weather-detail">Vlhkost: 80</div>
-            <div class="weather-detail">Oblačnost: Oblačno</div>
-        </div>
-    </div><div class="day">
-        <h3 class="date">Den 1</h3>
-        <div class="weather-details">
-            <div class="weather-detail">Teplota: 25C</div>
-            <div class="weather-detail">Pocitová teplota: 23C</div>
-            <div class="weather-detail">Vlhkost: 80</div>
-            <div class="weather-detail">Oblačnost: Oblačno</div>
-        </div>
-    </div><div class="day">
-        <h3 class="date">Den 1</h3>
-        <div class="weather-details">
-            <div class="weather-detail">Teplota: 25C</div>
-            <div class="weather-detail">Pocitová teplota: 23C</div>
-            <div class="weather-detail">Vlhkost: 80</div>
-            <div class="weather-detail">Oblačnost: Oblačno</div>
-        </div>
-    </div>                   
+    </div>                       
 </div>

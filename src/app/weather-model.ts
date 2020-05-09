@@ -1,9 +1,9 @@
 export class WeatherModel {
     constructor(
-        public city: string,
         public date: string,
+        public icon: string,
         public temperature: string,
-        public windchill: string,
+        public feelsLike: string,
         public humidity: string,
         public cloudiness: string
     ){}

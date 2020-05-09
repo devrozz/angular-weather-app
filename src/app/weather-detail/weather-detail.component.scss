@@ -9,19 +9,32 @@ $lightgray: rgba(211, 211, 211, 0.7);
     display: flex;
     justify-content: center;
     .day {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 }
 
 .date {
     text-align: center;
+    border-bottom: 1px solid $white;
+    padding-bottom: 7px;
+}
+
+.city {
+    text-align: center;
+    color: $white;
+    margin-top: 70px;
+}
+
+.value {
+    align-items: flex-end;
 }
 
 .weather-details {
     margin-left: 15px;
 
     .weather-detail {
+        display: flex;
         font-weight: 500;
         align-self: center;
         margin-bottom: 3px;
