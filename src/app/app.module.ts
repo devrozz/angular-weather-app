@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { WeatherDetailComponent } from './weather-detail/weather-detail.component';
 import { WeatherService } from './weather.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule
   ],
   providers: [
-    WeatherService    
+    WeatherService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

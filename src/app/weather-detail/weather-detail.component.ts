@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WeatherModel } from '../weather-model';
-import { environment } from '../../environments/environment'
+import { environment } from '../../environments/environment';
+import * as CanvasJS from '../../../canvasjs.min';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-weather-detail',
@@ -11,12 +13,12 @@ export class WeatherDetailComponent implements OnInit {
  
   city: string;
   environment = environment;
-  days: WeatherModel[];
-  message: string;
+  days: WeatherModel[] = [];
+  chartShown: boolean;
 
-  constructor() { }
+  constructor(private datePipe: DatePipe) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
   }
 
   getCity($event) {
@@ -26,4 +28,54 @@ export class WeatherDetailComponent implements OnInit {
   getDays($event) {
     this.days = $event;
   }
+
+  showChart($event) {
+    if($event) {
+      this.initChart();
+    }
+  }
+
+  initChart() {
+    if(this.days.length >= 2) {
+      let chart = new CanvasJS.Chart('chartContainer', {
+      animationEnabled: true,
+      backgroundColor: 'transparent',
+      axisX: {
+        labelFontColor: '#fff'
+      },
+      axisY: {
+        labelFontColor: '#fff'
+      },
+      data: [{
+        type: 'column',
+        dataPoints: [
+          { y: this.days[0].temperature, label: this.datePipe.transform(this.days[0].date, 'dd.M.')  },
+          { y: this.days[1].temperature, label: this.datePipe.transform(this.days[1].date, 'dd.M.') },
+          { y: this.days[2].temperature, label: this.datePipe.transform(this.days[2].date, 'dd.M.') },
+          { y: this.days[3].temperature, label: this.datePipe.transform(this.days[3].date, 'dd.M.') },
+          { y: this.days[4].temperature, label: this.datePipe.transform(this.days[4].date, 'dd.M.') }
+        ]
+      }]
+    });
+      chart.render();
+    } else {
+        let chart = new CanvasJS.Chart('chartContainer', {
+        animationEnabled: true,
+        backgroundColor: 'transparent',
+        axisX: {
+          labelFontColor: '#fff'
+        },
+        axisY: {
+          labelFontColor: '#fff'
+        },
+        data: [{
+          type: 'column',
+          dataPoints: [
+            { y: this.days[0].temperature, label: this.datePipe.transform(this.days[0].date, 'dd.M.')}
+          ]
+        }]
+      });
+      chart.render();
+    }
+  }    
 }

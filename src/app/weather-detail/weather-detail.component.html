@@ -1,10 +1,10 @@
-<app-search (city)="getCity($event)" (outputDays)="getDays($event)"></app-search>
+<app-search (city)="getCity($event)" (outputDays)="getDays($event)" (showChart)="showChart($event)"></app-search>
 <div class="city">
-    <h2>{{city}}</h2> 
+    <h3>{{city}}</h3>
 </div>
 <div class="days">
     <div class="day" *ngFor="let day of days">
-        <h3 class="date">{{ day.date | date:'dd.MM' }}</h3>
+        <h3 class="date">{{ day.date | date:'dd.M.' }}</h3>
         <div class="weather-details">
             <div class="weather-detail">Teplota: {{ day.temperature }} ° C</div>
             <div class="weather-detail">Pocitová teplota: {{ day.feelsLike}} ° C</div>
@@ -14,3 +14,4 @@
         </div>
     </div>                       
 </div>
+<div id="chartContainer" style="height: 150px; width: 100%;"></div>

@@ -13,10 +13,14 @@ import { WeatherModel } from '../weather-model';
 export class SearchComponent implements OnInit {
 
   days: WeatherModel[] = [];
+  latitude = 0;
+  longitude = 0;
   value = '';
+  
   //cities = cities;
   @Output() outputDays: EventEmitter<WeatherModel[]> = new EventEmitter();
   @Output() city: EventEmitter<string> = new EventEmitter();
+  @Output() showChart: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private weatherService: WeatherService) { }
 
@@ -36,10 +40,36 @@ export class SearchComponent implements OnInit {
     this.value = city.name;
   }
 
+  getLocationWeather() {
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position) => {        
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.weatherService.getByLocation(this.latitude, this.longitude).subscribe(result => {
+          this.days = [];          
+          this.city.emit(result.name);
+          const today = new Date().toString();
+          const day = new WeatherModel(
+            today,
+            result.weather[0].icon,
+            result.main.temp,
+            result.main.feels_like,
+            result.main.humidity,
+            result.clouds.all
+          )
+          this.days.push(day)
+          this.outputDays.emit(this.days);
+          this.showChart.emit(true);
+        })
+      });
+    }
+  }
+
   getWeather() {
     this.days = [];
-    this.weatherService.get(this.value).subscribe(result => {
+    this.weatherService.getByCity(this.value).subscribe(result => {
       this.city.emit(result.city.name);
+      console.log(this.showChart);
       for(let i = 0; i < result.list.length; i += 8) {
         const day = new WeatherModel(
           result.list[i].dt_txt,
@@ -52,6 +82,7 @@ export class SearchComponent implements OnInit {
         this.days.push(day);
       }
       this.outputDays.emit(this.days);
+      this.showChart.emit(true);
     })
   }
 }

@@ -21,7 +21,7 @@ $white: rgb(255, 255, 255);
 
 .search-button {
     margin-left: 10px;
-    font-family: 'Merriweather', serif;
+    font-family: 'Varela Round', serif;
     border-radius: 3px;
     background-color: $white;
     border: none;
@@ -38,7 +38,7 @@ $white: rgb(255, 255, 255);
 
 .search-cancel {
     position: absolute;
-    top: 2px;
+    top: 1px;
     left: 152px;
     width: 15px;
     height: 15px;
@@ -52,7 +52,7 @@ $white: rgb(255, 255, 255);
             width: 15px;
             height: 15px;
             position: absolute;
-            left: 2px;
+            left: 4px;
             bottom: 2px;
             color: red;
         }

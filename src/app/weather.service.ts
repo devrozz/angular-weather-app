@@ -12,8 +12,12 @@ export class WeatherService {
     private http: HttpClient
   ) {}  
 
-  get(city: string): Observable<any> {
+  getByCity(city: string): Observable<any> {
     return this.http.get(`${environment.api_url}q=${city}&appid=${environment.api_key}&units=metric&lang=cz`)
     .pipe();
+  }
+
+  getByLocation(lat: number, lon: number): Observable<any> {
+    return this.http.get(`${environment.api_url_location}lat=${lat}&lon=${lon}&appid=${environment.api_key}&units=metric&lang=cz`).pipe();
   }
 }
