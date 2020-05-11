@@ -2,7 +2,7 @@
     <div class="inline">
         <span class="label-text">Jaké je počasí v</span>
         <div class="search-input-box">
-            <input [(ngModel)]="value" type="text" class="search-box" aria-label="Search" #searchBox id="search-box" (input)="search(searchBox.value)">
+            <input [(ngModel)]="value" type="text" class="search-box" aria-label="Search" #searchBox (keyup.enter)="getWeather()" id="search-box" (input)="search(searchBox.value)">
             <span class="search-cancel" *ngIf="searchBox.value" (click)="deleteInputValue()"></span>
         </div>
         <button class="search-button" (click)="getWeather()">Zjistit</button>
