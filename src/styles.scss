@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap');
 
-body {
+html {
+    height: 100%;
     font-family: 'Merriweather', serif;
-    background: url('./assets/images/sky-background.jpeg');
+    background-image: url('./assets/images/sunset-sky.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
 }

@@ -7,13 +7,13 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class WeatherService {
+  
   constructor(
     private http: HttpClient
-  ) { }  
+  ) {}  
 
-  get(id: number): Observable<any> {
-    return this.http.get(`${environment.api_url}id=${id}&appid=${environment.api_key}&units=metric&lang=cz`)
+  get(city: string): Observable<any> {
+    return this.http.get(`${environment.api_url}q=${city}&appid=${environment.api_key}&units=metric&lang=cz`)
     .pipe();
   }
-  
 }

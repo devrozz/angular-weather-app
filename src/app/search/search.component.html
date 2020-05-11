@@ -1,1 +1,15 @@
-<p>search works!</p>
+<div class="search-component">
+    <div class="inline">
+        <span class="label-text">Jaké je počasí v</span>
+        <div class="search-input-box">
+            <input [(ngModel)]="value" type="text" class="search-box" aria-label="Search" #searchBox id="search-box" (input)="search(searchBox.value)">
+            <span class="search-cancel" *ngIf="searchBox.value" (click)="deleteInputValue()"></span>
+        </div>
+        <button class="search-button" (click)="getWeather()">Zjistit</button>
+    </div>
+    <!-- <div>
+        <ul class="search-result" *ngIf="searchBox.value">
+            <li *ngFor="let city of cities" class="search-city-li" (click)="getInputValue(city)"></li>
+        </ul>
+    </div> -->
+</div>
