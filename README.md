@@ -21,9 +21,9 @@ Pro spuštění aplikace na localhost udělejte prosím následující:
 
 Aplikaci je možné vidět [ZDE](https://devrozz.github.io/angular-weather-app/).
 
-Bohužel došlo k problému při uploadu skrz větší soubor obsahující seznam měst pro našeptáváč při vyhledávání a tato funkcionalita je zde nedostupná, stejně jako logo aplikace. Za problém se omlouvám.
+Bohužel došlo k problému při uploadu skrz větší soubor obsahující seznam měst pro našeptáváč při vyhledávání a tato funkcionalita je zde nedostupná, stejně jako logo aplikace. Za problém velice se omlouvám.
 
-Pro kompletní funkcionalitu a zážitek z aplikace spusťte aplikaci na lokálním počítači, pomocí návodu výše.
+Pro kompletní funkcionalitu a zážitek z aplikace spusťte aplikaci na lokálním počítači pomocí návodu výše.
 
 ## Vnitřní struktura aplikace
 
