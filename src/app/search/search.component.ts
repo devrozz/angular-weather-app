@@ -1,9 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { City } from '../city-model';
 import { WeatherService } from '../weather.service';
-import cities from '../../../cities.json'
 import { WeatherModel } from '../weather-model';
-
 
 @Component({
   selector: 'app-search',
@@ -16,8 +14,10 @@ export class SearchComponent implements OnInit {
   latitude = 0;
   longitude = 0;
   value = '';
+  cities: City[];
+  citiesMatch: City[];
+  showResults = false;
   
-  //cities = cities;
   @Output() outputDays: EventEmitter<WeatherModel[]> = new EventEmitter();
   @Output() city: EventEmitter<string> = new EventEmitter();
   @Output() showChart: EventEmitter<boolean> = new EventEmitter();
@@ -25,19 +25,30 @@ export class SearchComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
+    this.weatherService.getCities().subscribe(cities => {
+      this.cities = cities;
+    })
   }
 
   search(text: string): void {
     if(text !== '') {
+      this.showResults = true;
+      let matches = this.cities.filter(city => {
+        const regex = new RegExp(`^${text}`, 'gi')
+        return city.name.match(regex);
+      })
+      this.citiesMatch = matches;
     }
   }
 
   deleteInputValue() {
     this.value = '';
+    this.showResults = false;
   }
 
   getInputValue(city: City) {
     this.value = city.name;
+    this.showResults = false;
   }
 
   getLocationWeather() {
@@ -69,7 +80,6 @@ export class SearchComponent implements OnInit {
     this.days = [];
     this.weatherService.getByCity(this.value).subscribe(result => {
       this.city.emit(result.city.name);
-      console.log(this.showChart);
       for(let i = 0; i < result.list.length; i += 8) {
         const day = new WeatherModel(
           result.list[i].dt_txt,
@@ -83,6 +93,7 @@ export class SearchComponent implements OnInit {
       }
       this.outputDays.emit(this.days);
       this.showChart.emit(true);
+      this.value = '';
     })
   }
 }

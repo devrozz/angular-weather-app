@@ -1,6 +1,15 @@
-$lightskyblue: rgb(135, 206, 250);
 $white: rgb(255, 255, 255);
-$lightgray: rgba(211, 211, 211, 0.7);
+
+.city {
+    text-align: center;
+    color: $white;    
+}
+
+.date {
+    text-align: center;
+    border-bottom: 1px solid $white;
+    padding-bottom: 7px;
+}
 
 .days {
     color: $white;
@@ -12,17 +21,6 @@ $lightgray: rgba(211, 211, 211, 0.7);
         margin-left: 20px;
         margin-right: 20px;
     }
-}
-
-.date {
-    text-align: center;
-    border-bottom: 1px solid $white;
-    padding-bottom: 7px;
-}
-
-.city {
-    text-align: center;
-    color: $white;    
 }
 
 .value {

@@ -2,15 +2,17 @@
     <div class="inline">
         <span class="label-text">Jaké je počasí v</span>
         <div class="search-input-box">
-            <input [(ngModel)]="value" type="text" class="search-box" aria-label="Search" #searchBox (keyup.enter)="getWeather()" id="search-box" (input)="search(searchBox.value)">
+            <input [(ngModel)]="value" type="text" class="search-box" aria-label="Search" #searchBox (keyup.enter)="getWeather()" id="search-box" (input)="search(searchBox.value)" [ngClass]="{'open-search' : showResults}">
             <span class="search-cancel" *ngIf="searchBox.value" (click)="deleteInputValue()"></span>
         </div>
         <button class="search-button" (click)="getWeather()">Zjistit</button>
         <button class="search-button" (click)="getLocationWeather()">Aktuální poloha</button>
     </div>
-    <!-- <div>
-        <ul class="search-result" *ngIf="searchBox.value">
-            <li *ngFor="let city of cities" class="search-city-li" (click)="getInputValue(city)"></li>
-        </ul>
-    </div> -->
+   <div class="results">
+       <ul class="search-result" *ngIf="searchBox.value && showResults">
+           <li *ngFor="let match of (citiesMatch ? citiesMatch.concat([]).slice(0, 5): [])" class="search-li" (click)="getInputValue(match)">
+               <a><span class="search-city">{{match.name}}</span></a>
+           </li>
+       </ul>
+   </div>
 </div>
