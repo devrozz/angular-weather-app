@@ -15,11 +15,11 @@ export class WeatherService {
   ) {}  
 
   getByCity(city: string): Observable<any> {
-    return this.http.get(`${environment.api_url}q=${city}&appid=${environment.api_key}&units=metric&lang=cz`);
+    return this.http.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=68aa441e22ee39eaef98cb03b17c1d38&units=metric&lang=cz`);
   }
 
   getByLocation(lat: number, lon: number): Observable<any> {
-    return this.http.get(`${environment.api_url_location}lat=${lat}&lon=${lon}&appid=${environment.api_key}&units=metric&lang=cz`);
+    return this.http.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=68aa441e22ee39eaef98cb03b17c1d38&units=metric&lang=cz`);
   }
 
   getCities(): Observable<any> {

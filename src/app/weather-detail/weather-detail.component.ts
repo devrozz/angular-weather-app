@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherModel } from '../weather-model';
-import { environment } from '../../environments/environment';
 import * as CanvasJS from '../../../canvasjs.min';
 import { DatePipe } from '@angular/common';
 
@@ -12,7 +11,6 @@ import { DatePipe } from '@angular/common';
 export class WeatherDetailComponent implements OnInit {
  
   city: string;
-  environment = environment;
   days: WeatherModel[] = [];
   chartShown: boolean;
 
