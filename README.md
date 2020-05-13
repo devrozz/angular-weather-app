@@ -29,19 +29,19 @@ Pro kompletní funkcionalitu a zážitek z aplikace spusťte aplikaci na lokáln
 
 Aplikace se skládá ze:
 
- 4 komponent:   
-    - App.component - Hlavní komponenta, která zaobaluje celou aplikaci
-    - Header.component - Komponenta obsahující header stránky (název + logo)
-    - Search.component - Komponenta pro vyhledávání měst a získání aktuální lokality
-    - Weather-detail.component - Komponenta obsahující detail počasí a graf s teplotou v jednotlivých dnech
+4 komponent:   
+- App.component - Hlavní komponenta, která zaobaluje celou aplikaci
+- Header.component - Komponenta obsahující header stránky (název + logo)
+- Search.component - Komponenta pro vyhledávání měst a získání aktuální lokality
+- Weather-detail.component - Komponenta obsahující detail počasí a graf s teplotou v jednotlivých dnech
 
- 1 service:     
-    - Weather.service - Obsahuje logiku pro získání:    
-        - počasí pro následujících 5 dní z API
-        - počasí pro aktuální lokalitu z API
-        - seznam měst z lokálního souboru
+1 service:     
+- Weather.service - Obsahuje logiku pro získání:    
+    - počasí pro následujících 5 dní z API
+    - počasí pro aktuální lokalitu z API
+    - seznam měst z lokálního souboru
 
- 2 modely:      
-    - Weather-model - Model počasí obsahující datum, teplotu, pocitovou teplotu, vlhkost, oblačnost a ikonu počasí
-    - City-model - Model obsahující ID a název města
+2 modely:      
+- Weather-model - Model počasí obsahující datum, teplotu, pocitovou teplotu, vlhkost, oblačnost a ikonu počasí
+- City-model - Model obsahující ID a název města
 
