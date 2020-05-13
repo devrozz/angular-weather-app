@@ -1,27 +1,43 @@
 # WeatherApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+Aplikace na předpověď počasí.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Pro spuštění aplikace na localhost udělejte prosím následující:
 
-## Code scaffolding
+1. Stáhněte si projekt kliknutím na "Clone or download" a uložte jej do složky Users/'Jméno uživatele'.
+2. Stáhněte a nainstalujte Node.js [ZDE](https://nodejs.org/en/). 
+3. Otevřete příkazový řádek spusťte v tomto pořadí
+    - `npm install npm@latest -g`
+    - `npm install -g typescript`
+    - `npm install -g @angular/cli`
+    - `npm install -g @angular/cli`
+4. Poté v příkazovém řádku napište `cd angular-weather-app-master` (měli byste se defaultně nacházet na Users/'Jméno uživatele')
+5. Nyní aplikaci spusťe pomocí příkazu `ng serve`.
+6. Spusťe internetový prohlížeč a otevřete `http://localhost:4200/`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Live server
 
-## Build
+Aplikaci je možné vidět [ZDE](https://devrozz.github.io/angular-weather-app/).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Bohužel došlo k problému při uploadu skrz větší soubor obsahující seznam měst pro našeptáváč při vyhledávání a tato funkcionalita je zde nedostupná, stejně jako logo aplikace. Za problém se omlouvám.
 
-## Running unit tests
+Pro kompletní funkcionalitu a zážitek z aplikace spusťte aplikaci na lokálním počítači, pomocí návodu výše.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Vnitřní struktura aplikace
 
-## Running end-to-end tests
+Aplikace se skládá ze:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+ 4 komponent:   - App.component - Hlavní komponenta, která zaobaluje celou aplikaci
+                - Header.component - Komponenta obsahující header stránky (název + logo)
+                - Search.component - Komponenta pro vyhledávání měst a získání aktuální lokality
+                - Weather-detail.component - Komponenta obsahující detail počasí a graf s teplotou v jednotlivých dnech
 
-## Further help
+ 1 service:     - Weather.service - Obsahuje logiku pro získání:    - počasí pro následujících 5 dní z API
+                                                                    - počasí pro aktuální lokalitu z API
+                                                                    - seznam měst z lokálního souboru
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ 2 modely:      - Weather-model - Model počasí obsahující datum, teplotu, pocitovou teplotu, vlhkost, oblačnost a ikonu počasí
+                - City-model - Model obsahující ID a název města
+
