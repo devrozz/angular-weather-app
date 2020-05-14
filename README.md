@@ -11,11 +11,11 @@ Pro spuštění aplikace na localhost udělejte prosím následující:
 3. Otevřete příkazový řádek a spusťte v tomto pořadí
     - `npm install npm@latest -g`
     - `npm install -g typescript`
-    - `npm install -g @angular/cli`
-    - `npm install -g @angular/cli`
-4. Poté v příkazovém řádku napište `cd angular-weather-app-master` (měli byste se defaultně nacházet na Users/'Jméno uživatele')
-5. Nyní aplikaci spusťte pomocí příkazu `ng serve`.
-6. Spusťte internetový prohlížeč a otevřete `http://localhost:4200/`
+    - `npm install -g @angular/cli`    
+4. Poté v příkazovém řádku napište `cd angular-weather-app-master` (měli byste se defaultně nacházet na Users/'Jméno uživatele'), čímž se přesunete do složky s projektem.
+5. V příkazovém řádku nyní napište `npm update` a potvrďte.
+6. Nyní aplikaci spusťte pomocí příkazu `ng serve`.
+7. Spusťte internetový prohlížeč a otevřete `http://localhost:4200/`.
 
 ## Live server
 
